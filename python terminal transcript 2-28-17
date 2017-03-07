@@ -1,0 +1,232 @@
+pi@raspberrypi:~ $ pip install python-escpos
+Downloading/unpacking python-escpos
+  Cannot fetch index base URL https://pypi.python.org/simple/
+  Downloading python_escpos-2.2.0-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): pyserial in /usr/lib/python2.7/dist-packages (from python-escpos)
+Downloading/unpacking pyusb>=1.0.0 (from python-escpos)
+  Downloading PyUSB-1.0.0.tar.gz (52kB): 52kB downloaded
+  Running setup.py (path:/tmp/pip-build-LzGo_c/pyusb/setup.py) egg_info for package pyusb
+    
+Requirement already satisfied (use --upgrade to upgrade): six in /usr/lib/python2.7/dist-packages (from python-escpos)
+Downloading/unpacking appdirs (from python-escpos)
+  Downloading appdirs-1.4.2-py2.py3-none-any.whl
+Downloading/unpacking pyyaml (from python-escpos)
+  Downloading PyYAML-3.12.tar.gz (253kB): 253kB downloaded
+  Running setup.py (path:/tmp/pip-build-LzGo_c/pyyaml/setup.py) egg_info for package pyyaml
+    
+Downloading/unpacking qrcode>=4.0 (from python-escpos)
+  Downloading qrcode-5.3-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): Pillow>=2.0 in /usr/lib/python2.7/dist-packages (from python-escpos)
+Downloading/unpacking argcomplete (from python-escpos)
+  Downloading argcomplete-1.8.2-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): argparse in /usr/lib/python2.7 (from python-escpos)
+Installing collected packages: python-escpos, pyusb, appdirs, pyyaml, qrcode, argcomplete
+Cleaning up...
+Exception:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/pip/basecommand.py", line 122, in main
+    status = self.run(options, args)
+  File "/usr/lib/python2.7/dist-packages/pip/commands/install.py", line 295, in run
+    requirement_set.install(install_options, global_options, root=options.root_path)
+  File "/usr/lib/python2.7/dist-packages/pip/req.py", line 1436, in install
+    requirement.install(install_options, global_options, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/pip/req.py", line 672, in install
+    self.move_wheel_files(self.source_dir, root=root)
+  File "/usr/lib/python2.7/dist-packages/pip/req.py", line 902, in move_wheel_files
+    pycompile=self.pycompile,
+  File "/usr/lib/python2.7/dist-packages/pip/wheel.py", line 214, in move_wheel_files
+    clobber(source, lib_dir, True)
+  File "/usr/lib/python2.7/dist-packages/pip/wheel.py", line 204, in clobber
+    os.makedirs(destdir)
+  File "/usr/lib/python2.7/os.py", line 157, in makedirs
+    mkdir(name, mode)
+OSError: [Errno 13] Permission denied: '/usr/local/lib/python2.7/dist-packages/python_escpos-2.2.0.dist-info'
+
+Storing debug log for failure in /home/pi/.pip/pip.log
+pi@raspberrypi:~ $ sudo pip install python-escpos
+Downloading/unpacking python-escpos
+  Downloading python_escpos-2.2.0-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): pyserial in /usr/lib/python2.7/dist-packages (from python-escpos)
+Downloading/unpacking pyusb>=1.0.0 (from python-escpos)
+  Downloading PyUSB-1.0.0.tar.gz (52kB): 52kB downloaded
+  Running setup.py (path:/tmp/pip-build-GIekPQ/pyusb/setup.py) egg_info for package pyusb
+    
+Requirement already satisfied (use --upgrade to upgrade): six in /usr/lib/python2.7/dist-packages (from python-escpos)
+Downloading/unpacking appdirs (from python-escpos)
+  Downloading appdirs-1.4.2-py2.py3-none-any.whl
+Downloading/unpacking pyyaml (from python-escpos)
+  Downloading PyYAML-3.12.tar.gz (253kB): 253kB downloaded
+  Running setup.py (path:/tmp/pip-build-GIekPQ/pyyaml/setup.py) egg_info for package pyyaml
+    
+Downloading/unpacking qrcode>=4.0 (from python-escpos)
+  Downloading qrcode-5.3-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): Pillow>=2.0 in /usr/lib/python2.7/dist-packages (from python-escpos)
+Downloading/unpacking argcomplete (from python-escpos)
+  Downloading argcomplete-1.8.2-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): argparse in /usr/lib/python2.7 (from python-escpos)
+Installing collected packages: python-escpos, pyusb, appdirs, pyyaml, qrcode, argcomplete
+  Running setup.py install for pyusb
+    
+  Running setup.py install for pyyaml
+    checking if libyaml is compilable
+    arm-linux-gnueabihf-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/usr/include/python2.7 -c build/temp.linux-armv7l-2.7/check_libyaml.c -o build/temp.linux-armv7l-2.7/check_libyaml.o
+    build/temp.linux-armv7l-2.7/check_libyaml.c:2:18: fatal error: yaml.h: No such file or directory
+     #include <yaml.h>
+                      ^
+    compilation terminated.
+    
+    libyaml is not found or a compiler error: forcing --without-libyaml
+    (if libyaml is installed correctly, you may need to
+     specify the option --include-dirs or uncomment and
+     modify the parameter include_dirs in setup.cfg)
+    
+Successfully installed python-escpos pyusb appdirs pyyaml qrcode argcomplete
+Cleaning up...
+pi@raspberrypi:~ $ lsusb
+Bus 001 Device 006: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
+Bus 001 Device 005: ID 045e:0750 Microsoft Corp. Wired Keyboard 600
+Bus 001 Device 004: ID 04f2:0939 Chicony Electronics Co., Ltd 
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp. 
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+pi@raspberrypi:~ $ pwd
+/home/pi
+pi@raspberrypi:~ $ cd ..
+pi@raspberrypi:/home $ ls
+pi
+pi@raspberrypi:/home $ touch /etc/udev/rules.d/99-escpos.rules
+touch: cannot touch ‘/etc/udev/rules.d/99-escpos.rules’: Permission denied
+pi@raspberrypi:/home $ sudo touch /etc/udev/rules.d/99-escpos.rules
+pi@raspberrypi:/home $ cd /etc
+pi@raspberrypi:/etc $ ls
+adduser.conf            dillo              init.d           manpath.config  python2.7        ssl
+alternatives            dphys-swapfile     initramfs-tools  menu-methods    python3          staff-group-for-usr-local
+apache2                 dpkg               inputrc          mime.types      python3.4        subgid
+apparmor.d              drirc              insserv          mke2fs.conf     rc0.d            subgid-
+apt                     emacs              insserv.conf     modprobe.d      rc1.d            subuid
+avahi                   environment        insserv.conf.d   modules         rc2.d            subuid-
+bash.bashrc             esound             iproute2         modules-load.d  rc3.d            sudoers
+bash_completion         fake-hwclock.data  issue            motd            rc4.d            sudoers.d
+bash_completion.d       fb.modes           issue.net        mtab            rc5.d            sysctl.conf
+bindresvport.blacklist  fonts              kbd              nanorc          rc6.d            sysctl.d
+binfmt.d                fstab              kernel           netconfig       rc.local         systemd
+bluetooth               fuse.conf          ldap             network         rcS.d            terminfo
+ca-certificates         gai.conf           ld.so.cache      networks        request-key.d    timezone
+ca-certificates.conf    gconf              ld.so.conf       newt            resolvconf       timidity
+calendar                gdb                ld.so.conf.d     nsswitch.conf   resolv.conf      tmpfiles.d
+chromium-browser        ghostscript        ld.so.preload    ntp.conf        resolvconf.conf  triggerhappy
+console-setup           gnome              libaudit.conf    openal          rmt              ucf.conf
+cron.d                  groff              libnl-3          opt             rpc              udev
+cron.daily              group              libreoffice      os-release      rpi-issue        udisks2
+cron.hourly             group-             lightdm          PackageKit      rsyslog.conf     ufw
+cron.monthly            gshadow            lighttpd         pam.conf        rsyslog.d        usb_modeswitch.conf
+crontab                 gshadow-           locale.alias     pam.d           RTIMULib.ini     usb_modeswitch.d
+cron.weekly             gss                locale.gen       passwd          samba            vdpau_wrapper.cfg
+dbus-1                  gtk-2.0            localtime        passwd-         securetty        vim
+debconf.conf            gtk-3.0            logcheck         perl            security         vnc
+debian_version          host.conf          login.defs       plymouth        selinux          wgetrc
+default                 hostname           logrotate.conf   polkit-1        services         wildmidi
+deluser.conf            hosts              logrotate.d      ppp             sgml             wpa_supplicant
+dhcp                    hosts.allow        machine-id       profile         shadow           X11
+dhcp3                   hosts.deny         magic            profile.d       shadow-          xdg
+dhcpcd.conf             idmapd.conf        magic.mime       protocols       shells           xml
+dhcpcd.duid             ifplugd            mailcap          pulse           skel             xpdf
+dictionaries-common     init               mailcap.order    python          ssh
+pi@raspberrypi:/etc $ cd /udev
+bash: cd: /udev: No such file or directory
+pi@raspberrypi:/etc $ cd udev
+pi@raspberrypi:/etc/udev $ ls
+hwdb.d  rules.d  udev.conf
+pi@raspberrypi:/etc/udev $ rules.d
+bash: rules.d: command not found
+pi@raspberrypi:/etc/udev $ open rules.d
+Couldn't get a file descriptor referring to the console
+pi@raspberrypi:/etc/udev $ open .
+Couldn't get a file descriptor referring to the console
+pi@raspberrypi:/etc/udev $ ^C
+pi@raspberrypi:/etc/udev $ nano rules.d
+pi@raspberrypi:/etc/udev $ ls
+hwdb.d  rules.d  udev.conf
+pi@raspberrypi:/etc/udev $ cd rules.d/
+pi@raspberrypi:/etc/udev/rules.d $ nano 99-escpos.rules 
+pi@raspberrypi:/etc/udev/rules.d $ sudo nano 99-escpos.rules 
+pi@raspberrypi:/etc/udev/rules.d $ sudo nano -w 99-escpos.rules 
+pi@raspberrypi:/etc/udev/rules.d $ sudo service udev restart
+pi@raspberrypi:/etc/udev/rules.d $ sudo udevadm control --reload
+pi@raspberrypi:/etc/udev/rules.d $ cd ..
+pi@raspberrypi:/etc/udev $ cd ..
+pi@raspberrypi:/etc $ cd ..
+pi@raspberrypi:/ $ cd dev/
+pi@raspberrypi:/dev $ ls
+autofs           fuse     loop3             net                 ram14   serial   tty13  tty25  tty37  tty49  tty60      vc-cma  vcsa1
+block            gpiomem  loop4             network_latency     ram15   serial1  tty14  tty26  tty38  tty5   tty61      vchiq   vcsa2
+btrfs-control    hidraw0  loop5             network_throughput  ram2    shm      tty15  tty27  tty39  tty50  tty62      vcio    vcsa3
+bus              hidraw1  loop6             null                ram3    snd      tty16  tty28  tty4   tty51  tty63      vc-mem  vcsa4
+cachefiles       hidraw2  loop7             ppp                 ram4    stderr   tty17  tty29  tty40  tty52  tty7       vcs     vcsa5
+char             hwrng    loop-control      ptmx                ram5    stdin    tty18  tty3   tty41  tty53  tty8       vcs1    vcsa6
+console          initctl  mapper            pts                 ram6    stdout   tty19  tty30  tty42  tty54  tty9       vcs2    vcsa7
+cpu_dma_latency  input    mem               ram0                ram7    tty      tty2   tty31  tty43  tty55  ttyAMA0    vcs3    vcsm
+cuse             kmsg     memory_bandwidth  ram1                ram8    tty0     tty20  tty32  tty44  tty56  ttyprintk  vcs4    vhci
+disk             log      mmcblk0           ram10               ram9    tty1     tty21  tty33  tty45  tty57  ttyUSB0    vcs5    watchdog
+fb0              loop0    mmcblk0p1         ram11               random  tty10    tty22  tty34  tty46  tty58  uhid       vcs6    watchdog0
+fd               loop1    mmcblk0p2         ram12               raw     tty11    tty23  tty35  tty47  tty59  uinput     vcs7    xconsole
+full             loop2    mqueue            ram13               rfkill  tty12    tty24  tty36  tty48  tty6   urandom    vcsa    zero
+pi@raspberrypi:/dev $ cd serial/
+pi@raspberrypi:/dev/serial $ ls
+by-id  by-path
+pi@raspberrypi:/dev/serial $ cd by-id/
+pi@raspberrypi:/dev/serial/by-id $ ls
+usb-Prolific_Technology_Inc._USB_2.0_To_COM_Device-if00-port0
+pi@raspberrypi:/dev/serial/by-id $ open . 
+Couldn't get a file descriptor referring to the console
+pi@raspberrypi:/dev/serial/by-id $ cd ..
+pi@raspberrypi:/dev/serial $ cd ..
+pi@raspberrypi:/dev $ cd tty
+bash: cd: tty: Not a directory
+pi@raspberrypi:/dev $ nano tty
+pi@raspberrypi:/dev $ nano tty0
+pi@raspberrypi:/dev $ python -m serial.tools.list_ports
+/dev/ttyUSB0        
+1 ports found
+pi@raspberrypi:/dev $ python serial.tools.miniterm
+python: can't open file 'serial.tools.miniterm': [Errno 2] No such file or directory
+pi@raspberrypi:/dev $ python -m serial.tools.miniterm
+could not open port 0: could not open port 0: [Errno 2] No such file or directory: '/dev/ttyS0'
+pi@raspberrypi:/dev $ python -m serial.tools.miniterm -h
+Usage: miniterm.py [options] [port [baudrate]]
+
+Miniterm - A simple terminal program for the serial port.
+
+Options:
+  -h, --help            show this help message and exit
+  -p PORT, --port=PORT  port, a number or a device name. (deprecated option,
+                        use parameter instead)
+  -b BAUDRATE, --baud=BAUDRATE
+                        set baud rate, default 9600
+  --parity=PARITY       set parity, one of [N, E, O, S, M], default=N
+  -e, --echo            enable local echo (default off)
+  --rtscts              enable RTS/CTS flow control (default off)
+  --xonxoff             enable software flow control (default off)
+  --cr                  do not send CR+LF, send CR only
+  --lf                  do not send CR+LF, send LF only
+  -D, --debug           debug received data (escape non-printable chars)
+                        --debug can be given multiple times: 0: just print
+                        what is received 1: escape non-printable characters,
+                        do newlines as unusual 2: escape non-printable
+                        characters, newlines too 3: hex dump everything
+  --rts=RTS_STATE       set initial RTS line state (possible values: 0, 1)
+  --dtr=DTR_STATE       set initial DTR line state (possible values: 0, 1)
+  -q, --quiet           suppress non error messages
+  --exit-char=EXIT_CHAR
+                        ASCII code of special character that is used to exit
+                        the application
+  --menu-char=MENU_CHAR
+                        ASCII code of special character that is used to
+                        control miniterm (menu)
+pi@raspberrypi:/dev $ python -m serial.tools.miniterm -b 38400 -p ttyUSB0 --parity=N 
+--- Miniterm on ttyUSB0: 38400,8,N,1 ---
+--- Quit: Ctrl+]  |  Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+--- unknown menu character Ctrl+J --
+--- unknown menu character Ctrl+J --
+
+--- exit ---
