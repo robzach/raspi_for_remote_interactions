@@ -1,0 +1,94 @@
+on 3-15-17 I kept trying to fiddle repeatedly with the 
+/etc/network/interfaces which didn't get me very far.
+
+Then, based on advice from "Just Enough Raspberry Pi" I started 
+modifying /etc/dhcpcd.conf to make a static IP address, 10.1.1.100/24, 
+thinking that in the future it would make it easier to VNC into the 
+machine through a network if it had a known address?
+
+Who knows. Will be trying this configuration to see if I can get the 
+thing online.
+
+Got what felt like it was a bit closer, but nope overall.
+
+Another file that matters is:
+/etc/wpa_supplicant/wpa_supplicant.conf
+but exactly what it's doing I can't tell. Seems mostly to matter only for wireless.
+
+Eventually got online. Had to do with proper configuration of the dhcpcd.conf file. Had to add this to the bottom of it:
+
+# custom static address for eth0
+# this following the "Just Enough Raspberry Pi" tutorial
+interface eth0
+static ip_address=10.1.1.100/24
+static routers=10.1.1.1
+static domain_name_servers=10.1.1.1
+
+
+
+And the interfaces file looks like this (not including comments):
+
+source-directory /etc/network/interfaces.d
+
+auto lo
+auto wlan0
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+
+
+
+
+I also am running the VNC client, following the rPi organization's instructions for setup, and using the simple startup script as explained in an Adafruit page for how to make it launch on startup so that a remotely restarting machine can still be talked to without needing to ssh or something into it first to turn on VNC.
+
+
+
+
+I modified the default resolution to be 1280x1024 at startup because when the thing is starting without a monitor attached it defaults to a very low resolution which makes it hard to see much on the screen. I had to use raspi-config to update itself to get to the resolution option dialog. 
+
+
+4-2-17
+
+To change the wireless networks the computer remembers, modify /etc/wpa_supplicant/wpa_supplicant.conf
+
+Added 
+
+network={
+        ssid="rpi"
+        psk="pw"
+        key_mgmt=WPA-PSK
+}
+
+so I could make a network from my computer at home and hope to VNC into the Pi.
+
+
+https://w1.fi/cgit/hostap/plain/wpa_supplicant/wpa_supplicant.conf has information about how to configure that configuration file. Relevantly to me: 
+
+# Catch all example that allows more or less all configuration modes
+network={
+	ssid="example"
+	scan_ssid=1
+	key_mgmt=WPA-EAP WPA-PSK IEEE8021X NONE
+	pairwise=CCMP TKIP
+	group=CCMP TKIP WEP104 WEP40
+	psk="very secret passphrase"
+	eap=TTLS PEAP TLS
+	identity="user@example.com"
+	password="foobar"
+	ca_cert="/etc/cert/ca.pem"
+	client_cert="/etc/cert/user.pem"
+	private_key="/etc/cert/user.prv"
+	private_key_passwd="password"
+	phase1="peaplabel=0"
+}
+
+This is useful insofar as I can try to maximize the likelihood that the RPi will get online knowing just the SSID and password (using all the different key_mgmt variables means I don't need to know which one is actually being used in a circumstance).
+
+Harder will be getting the thing online when it needs to click a "yes I am willing to accept your network conditions" thing from the Cisco router in the location of choice.
+
+May simply vault right over this problem by buying a little wireless network device for the thing to use.
