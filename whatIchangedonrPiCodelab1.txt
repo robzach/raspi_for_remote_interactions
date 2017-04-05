@@ -92,3 +92,10 @@ This is useful insofar as I can try to maximize the likelihood that the RPi will
 Harder will be getting the thing online when it needs to click a "yes I am willing to accept your network conditions" thing from the Cisco router in the location of choice.
 
 May simply vault right over this problem by buying a little wireless network device for the thing to use.
+
+
+
+4/5/17 installed screen to try to do some easier direct debugging with the printer (which is attached via serial. Simply did:
+
+sudo apt-get update
+sudo apt-get install screen

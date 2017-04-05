@@ -9,8 +9,8 @@ p.text("here's text that's left-aligned\n")
 p.set(align='right')
 p.text("here's text that's right-aligned\n\n")
 
-call = "I am writing something to you on this keyboard and hoping that you'll see it.\n"
-response = "Yeah, that's looking pretty good to me. I am responding in a way that I think will be good.\n"
+call = "I am writing something to you on this keyboard and hoping that you'll see it.\n\n\n"
+response = "Yeah, that's looking pretty good to me. I am responding in a way that I think will be good.\n\n\n"
 
 p.set(align='left')
 p.block_text(call,columns=20)
