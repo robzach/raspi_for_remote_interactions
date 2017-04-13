@@ -11,7 +11,7 @@ server to actually work right
 import requests
 import RPi.GPIO as G
 import time
-import threading
+import threading # not actually using threading
 
 diagnostic = True
 
