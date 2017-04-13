@@ -13,7 +13,7 @@ import RPi.GPIO as G
 import time
 import threading
 
-diagnostic = False
+diagnostic = True
 
 solenoidPin = 16
 lightGatePin = 18
@@ -37,7 +37,8 @@ G.setup(lightGatePin, G.IN)
 
 if(diagnostic):
     print("G.setmode = G.BOARD")
-    print
+    print("solenoidPin = ", solenoidPin)
+    print("lightGatePin = ", lightGatePin)
 
 def ballKicker():
     if(time.time() - lastReceive > ballwait):
