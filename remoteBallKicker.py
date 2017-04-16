@@ -23,8 +23,8 @@ lastTransmit = 0.0
 ballwait = 0.5
 
 # use these two lines from Larryville
-GETurl = http://appname.heroku.com/whiteoakstatus
-POSTurl = http://appname.heroku.com/larryvillepost
+GETurl = "http://appname.heroku.com/whiteoakstatus"
+POSTurl = "http://appname.heroku.com/larryvillepost"
 
 # use these two lines from White Oak
 ##GETurl = http://appname.heroku.com/larryvillestatus
@@ -43,13 +43,14 @@ if(diagnostic):
 def ballKicker():
     if(time.time() - lastReceive > ballwait):
         remoteMessage = requests.get(GETurl) # message should be a 0 or 1
-        if(remoteMessage):
+        if(remoteMessage == '1'):
             G.output(solenoidPin, True)
             time.sleep(0.1)
             G.output(solenoidPin, False)
+            # maybe push a message here, turning the 1 back into a 0?
 
 while(True):
-    if (G.input(lightGatePin) and (time.time() - lastTransmit > 0.5):
+    if (G.input(lightGatePin) and (time.time() - lastTransmit > 0.5)):
         POSTmessage = requests.post(POSTurl, data = "1")
         lastTransmit = time.time()
     ballKicker()
